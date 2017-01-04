@@ -105,7 +105,7 @@ define(['angular'],function(angular) {
 			return {
 				resolve: resolve
 			};
-		}(this.routeConfig);
+		}(this.routeConfig); 
 	};
 	
 	routeResolverModule.provider('routeResolver', routeResolver);
