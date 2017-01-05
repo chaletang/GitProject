@@ -9,6 +9,7 @@ define(['require','app'],function(require,app) {
 
         function initController() { 
             that.data.setCurrentUser();
+            that.data.loadAllUsers();
         }
 	}
 

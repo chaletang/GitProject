@@ -1,5 +1,5 @@
-define(['app'], function (app) {
-	var USER_ROLES = app.constant('USER_ROLES', {
+define(['constants'], function (appConstants) {
+	var USER_ROLES = appConstants.constant('USER_ROLES', {
 		  admin: 'admin',
 		  editor: 'editor',
 		  guest: 'guest'});

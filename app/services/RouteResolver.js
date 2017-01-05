@@ -25,9 +25,9 @@ define(['angular'],function(angular) {
 	        '$provide',
 	        function ($controllerProvider, $compileProvider, $filterProvider, $provide) {
 	            module.register = {
-	                controller: $controllerProvider.register,
-	                directive: $compileProvider.directive,
+	            	directive: $compileProvider.directive,
 	                component: $compileProvider.component,
+	                controller: $controllerProvider.register,
 	                filter: $filterProvider.register,
 	                factory: $provide.factory,
 	                service: $provide.service,
@@ -86,8 +86,7 @@ define(['angular'],function(angular) {
 				routeDef.secure = (secure)? secure : false;
 				routeDef.resolve = {
 					load: ['$q', '$rootScope',function($q,$rootScope) {
-							var dependencies = [routeConfig.getControllersDirectory() + path + baseName + 'Controller.js',
-							routeConfig.getComponentsDirectory() + path + 'userlist.js'];
+							var dependencies = [routeConfig.getControllersDirectory() + path + baseName + 'Controller.js'];
 							return resolveDependencies($q, $rootScope, dependencies);
 						
 					}]

@@ -1,5 +1,5 @@
-define(['app'], function (app) {
-	var AUTH_EVENTS = app.constant('AUTH_EVENTS', {
+define(['constants'], function (appConstants) {
+	var AUTH_EVENTS = appConstants.constant('AUTH_EVENTS', {
 		  loginSuccess: 'auth-login-success',
 		  loginFailed: 'auth-login-failed',
 		  logoutSuccess: 'auth-logout-success',

@@ -1,9 +1,10 @@
 require.config({
 	paths: {
 		'app': 'app',
-		'components': 'components',
 		'bootstrap': 'bootstrap',
 		'router': 'router',
+		'constants': 'constants',
+		'directives': 'directives',
 		
 		'AUTH_EVENTS': '../../constants/AUTH_EVENTS',
 		'USER_ROLES': '../../constants/USER_ROLES',
@@ -17,6 +18,7 @@ require.config({
 		'underscore': 'libs/underscore/underscore',
 		'text': 'libs/requirejs-text/text',
 		'domReady': 'libs/requirejs-domReady/domReady',
+		'stxPL': 'libs/stx-pattern-library',
 		
 		'RouteResolver': '../../services/RouteResolver',
 		'AuthService': '../../services/AuthService',
@@ -24,13 +26,16 @@ require.config({
 		'UserService': '../../services/UserService',
 		'AppService': '../../services/AppService',
 		
-		'userlist':'../../components/userlist'
-		
+		'topNav': '../../directives/topNav',
+		'sideBar': '../../directives/sideBar'
 		
 	},
 	shim: {
 		underscore: {
 			exports: '_'
+		},
+		stxPL :{
+			deps: ['jquery']
 		},
 		angular: {
 			exports: 'angular'

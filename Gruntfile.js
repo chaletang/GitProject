@@ -10,25 +10,32 @@ module.exports = function(grunt) {
             ' * Pattern Library\n' +
             ' */\n',
 		conf : {
-			path : '.',
+			path : './app',
+			sass: '<%= conf.path %>/content/sass/app.scss',
+			css: '<%= conf.path %>/content/css/app.css',
 			port : '9001'
 			
 		},
 		
 		/*Compile scss files to css files*/
-		sass: {},
+		sass: {
+			compile: {		 
+			        src: '<%= conf.sass %>',
+			        dest: '<%= conf.css %>'		   
+		   },
+		},
 
 		/*Jekyll*/
 		jekyll : {
 			build : {
 				options : {
-					config : '<%= conf.path %>/_config.yml',
+					config : '_config.yml',
 					serve : false
 				}
 			},
 			serve : {
 				options : {
-					config : '<%= conf.path %>/_config.yml',
+					config : '_config.yml',
 					port : '<%= conf.port %>',
 					serve : true
 				}
@@ -38,8 +45,8 @@ module.exports = function(grunt) {
 		/*Watch event for files, including add, change, delete*/
 		watch : {
 			build : {
-				files : ['<%= conf.path %>/app/**'],
-				tasks : ['jekyll:build']
+				files : ['<%= conf.path %>/**'],
+				tasks : ['sass:compile','jekyll:build']
 			}
 		}
 	});

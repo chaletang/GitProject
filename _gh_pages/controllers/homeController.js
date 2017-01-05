@@ -1,6 +1,6 @@
 define(['app'],function(app) {
     'use strict';
-	var homeController = function(AppService, USER_ROLES) {
+	var homeController = function(AppService) {
 		var that = this;
 		that.data = AppService;
 
@@ -8,12 +8,11 @@ define(['app'],function(app) {
 
         function initController() { 
             that.data.setCurrentUser();
-            that.data.loadAllUsers();
         }
 
     }
     
-    homeController.$inject = ['AppService', 'USER_ROLES'];
+    homeController.$inject = ['AppService'];
     app.register.controller('homeController', homeController);
 
 });

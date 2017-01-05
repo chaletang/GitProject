@@ -1,0 +1,178 @@
+@import 'variables';
+@import 'mixins';
+@import 'comm';
+@import 'carousels';
+
+* {
+	 @include box-sizing(border-box); 
+}
+body {
+	font-size: $font-size;
+	line-height: $line-height;
+	color: $text-color; 
+	background: url("../images/bg-noise.jpg"); 
+} 
+.panel-red {
+	.panel-heading {
+	    background: #c44;
+	    color: #fff;
+	}
+}
+.navbar {
+	&.navbar-inverse {
+			margin-bottom: 0;
+			@include border-radius(0);
+	    border-color: #292929;
+	    border-bottom: 1px solid #000;
+    	@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075));
+    	.navbar-brand {
+    		color: #fff;	
+    	}
+    	.navbar-toggle {
+    		border:none;
+    		&:hover,&:focus {
+    			background-color: transparent;
+    			border:none;
+    		}
+    		i {
+    			color: #fff; 
+    		}
+    	}
+    	.navbar-collapse, .navbar-form {
+    		border: none;
+    	}
+    	.navbar-nav {
+    		> .open {
+    			> a {
+    				color: #fff;
+    				&, &:hover,&:focus {
+    					background: none;
+    				}
+    			}
+    		}
+    	}  
+	}    
+} 
+
+.mainnavbar {
+    border-top: 1px solid #595959;
+		.mainnavbar-inner {	
+				height: 80px;
+	    	background-image: -webkit-gradient(linear, left 0%, left 100%, from(#414141), to(#323232));
+	    	background-image: -webkit-linear-gradient(top, #414141, 0%, #323232, 100%);
+	    	background-image: -moz-linear-gradient(top, #414141 0%, #323232 100%);
+	    	background-image: linear-gradient(to bottom, #414141 0%, #323232 100%);
+	    	background-repeat: repeat-x;
+	    	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff414141', endColorstr='#ff323232', GradientType=0);
+	    	border-bottom: 1px solid #000;
+	    	 @media #{$screen} and ($media-max: $xs-max) {
+	    			height: auto;
+    		}
+	    	.mainnav-toggle {
+				    display: none;
+				    padding: .5em 0;
+				    margin: 0 auto;
+				    font-size: 18px;
+				    @extend .align-center;
+				    color: #c44;
+				     @media #{$screen} and ($media-max: $xs-max) {
+				    	display: block;
+				    }
+			   }
+			   .mainnav-collapse {
+				    &.collapse {
+				    	 @media #{$screen} and ($media-min: $sm-min) {
+						    	display: block!important;
+						    	height: auto!important;
+						    	padding-bottom: 0;
+						    	overflow: visible!important;
+						   }
+						}
+				}
+				.mainnav {
+				    display: inline-block;
+				    height: 80px;
+				    padding: 0;
+				    margin: 0;
+				    border-left: 1px solid #292929;
+				    border-right: 1px solid #4A4A4A;
+				     @media #{$screen} and ($media-max: $xs-max) {
+			    			height: auto;
+			    			width: 100%;
+		    		}
+				    > li {
+				    		@extend .align-center;
+						    @extend .pull-left;
+						    min-width: 90px;
+						    height: 80px;
+						    padding: 0;
+						    margin: 0;
+						    list-style: none;
+						    border-left: 1px solid #4A4A4A;
+						    border-right: 1px solid #292929;
+						     @media #{$screen} and ($media-max: $xs-max) {
+				    			float: none;
+				    			text-align: left;
+				    			height: auto;
+				    		}
+				    		.dropdown-menu {
+				    			padding: 0;
+				    			 @media #{$screen} and ($media-max: $xs-max) {
+				    				position: relative;
+    								width: 100%;
+    								float: none;
+    								font-size: 14px;
+    								@include border-radius(0);
+    							}
+				    		}
+						    &.active {
+						    	> a {
+									    background: $text-color;
+									    color: #c44;
+									}
+						    } 
+						    > a {
+								    display: block;
+								    height: 100%;
+								    padding: 0 15px;
+								    font-size: 12px;
+								    font-weight: bold;
+								    color: #fff;
+								    @include text-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+								    @media #{$screen} and ($media-max: $xs-max) {
+								    	padding-top: 8px;
+								    	padding-bottom: 8px;
+								    }
+								    &:hover {
+								    	  @media #{$screen} and ($media-max: $xs-max) {
+								    	 		background: #666;
+								    	 }
+								    }
+								    > i {
+										    position: relative;
+										    top: 2px;
+										    display: inline-block;
+										    width: 24px;
+										    height: 24px;
+										    margin-top: 12px;
+										    margin-bottom: 9px;
+										    font-size: 28px;
+									     	 @media #{$screen} and ($media-max: $xs-max) {
+								    	 		margin-top: 0;
+								    	 	}
+										}
+										> span {
+										    display: block;
+										    padding-bottom: 2px;
+										     @media #{$screen} and ($media-max: $xs-max) {
+			    								display: inline-block;
+			    								margin-left: 5px;
+			    								vertical-align: middle;
+		    								}
+										}
+								}
+						}
+				}
+		}
+}     
+

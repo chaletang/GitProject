@@ -1,5 +1,5 @@
-define(['jquery','app','components'], function ($,app,components) { 
- 	angular.module('routeResolverModule').setupRegister(components); 
+define(['jquery','app'], function ($,app) { 
+
 	angular.module('routeResolverModule').setupRegister(app); 
 			
    	app.config(['$routeProvider', 'routeResolverProvider', 'USER_ROLES',
