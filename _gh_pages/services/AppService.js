@@ -9,9 +9,10 @@ define(['app'],function(app) {
         service.deleteUser = deleteUser;
         service.userRoles = USER_ROLES;
         service.isAuthorized = AuthService.isAuthorized;
+        service.isAuthenticated = AuthService.isAuthenticated;
         return service;
 
-        function setCurrentUser(user) {
+        function setCurrentUser() {
             UserService.getByUserName($rootScope.globals.currentUser.username)
                 .then(function (user) {
                     service.currentUser = user;

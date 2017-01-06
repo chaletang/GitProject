@@ -27,7 +27,9 @@ require.config({
 		'AppService': '../../services/AppService',
 		
 		'topNav': '../../directives/topNav',
-		'sideBar': '../../directives/sideBar'
+		'sideBar': '../../directives/sideBar',
+		
+		'appController':'../../controllers/appController'
 		
 	},
 	shim: {

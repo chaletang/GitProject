@@ -9,7 +9,7 @@ define(['app'],function(app) {
 		return service;
 		
 		function isAuthenticated() {
-		    return !!$rootScope.globals.currentUser.username;
+		    return !!$rootScope.globals.currentUser;
   		};
 
   		function isAuthorized(authorizedRoles) {

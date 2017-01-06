@@ -30,7 +30,7 @@ define(['jquery','app'], function ($,app) {
            	//var currentPath = current.$$route.originalPath;
             var authorizedRoles = next.data.authorizedRoles;
 		    if (!AuthService.isAuthorized(authorizedRoles)) {
-      			event.preventDefault();
+      			//event.preventDefault();
 		      	if (AuthService.isAuthenticated()) {
 		        // user is not allowed
 		        	$rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
@@ -38,6 +38,7 @@ define(['jquery','app'], function ($,app) {
 		        // user is not logged in
 		        	$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
 		        	$location.path('/login');
+		        	
 		      	}
 		    }
         });

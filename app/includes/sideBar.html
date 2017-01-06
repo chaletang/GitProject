@@ -1,1 +1,41 @@
-<span>Sidebar coming ...</span> 
+<div class="sideBar">
+	<div class="profile-menu">
+		<div class="profile-pic">
+			<img src="../../content/images/profile-img.jpg" alt="" class="mCS_img_loaded">
+		</div>
+		<div class="profile-info">
+			Hi,{{app.currentUser.username}}
+				<span ng-switch on="app.currentUser.role">
+				  <span ng-switch-when="app.userRoles.admin">({{app.userRoles.admin}})</span>
+				  <span ng-switch-when="app.userRoles.editor">({{app.userRoles.editor}})</span>
+				  <span ng-switch-default>({{app.userRoles.guest}})</span>
+				</span>
+			<ul class="info-menu">
+				<li><a data-ui-sref="pages.profile.profile-about" data-ng-click="mactrl.sidebarStat($event)" href="#/pages/profile/profile-about"><i class="zmdi zmdi-account"></i> View Profile</a></li>
+				<li><a href="#/login"><i class="zmdi zmdi-time-restore"></i> Logout</a></li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="main-menu">
+		<div class="vertical-sub-navigation simple">
+				<div class="vsn-menu">
+					<ul>
+						<li class="vsn-menu-item">
+							<a class="vsn-menu-item-header"href="#/home">Home</a>
+						</li>
+						<li class="vsn-menu-item" ng-if="app.isAuthorized([app.userRoles.admin,app.userRoles.editor])">
+							<a class="vsn-menu-item-header" href="#/dashboard">Dashboard</a>
+						</li>
+						<li class="vsn-menu-item">
+							<a class="vsn-menu-item-header" href="">Menu3</a>
+							<ul>
+								<li><a href="">SubMenu1</a></li>
+								<li><a href="">SubMenu2</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+</div>

@@ -13,12 +13,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="userList" ng-if="that.data.isAuthorized(that.data.userRoles.admin)">
+				<div class="userList">
 					<p>All registered users:</p>
 					<ul>
 					    <li ng-repeat="user in that.data.allUsers">
 					        {{user.username}} ({{user.firstName}} {{user.lastName}}) ({{user.role}})
-					        - <a ng-click="that.data.deleteUser(user.id)">Delete</a>
+					        - <a ng-if="that.data.isAuthorized(that.data.userRoles.admin)" ng-click="that.data.deleteUser(user.id)">Delete</a>
 					    </li>
 					</ul>
 				</div>

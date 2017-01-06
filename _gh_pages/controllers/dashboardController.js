@@ -1,4 +1,4 @@
-define(['require','app'],function(require,app) {
+define(['app'],function(app) {
     'use strict';
 	var dashboardController = function(AppService) {
 
