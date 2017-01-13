@@ -37,10 +37,24 @@
   -moz-transform: $transform;
   transform: $transform;
 }
+@mixin transform-origin($transform-origin...) {
+	-webkit-transform-origin: $transform-origin;
+  -moz-transform-origin: $transform-origin;
+  -ms-transform-origin: $transform-origin;
+  transform-origin: $transform-origin;
+}
+    
 @mixin perspective($perspective) {
 	-webkit-perspective: $perspective;
   -moz-perspective: $perspective;
   perspective: $perspective;
 }
+
+@mixin backface-visibility($visibility) {
+	-webkit-backface-visibility: $visibility;
+  -moz-backface-visibility: $visibility;
+  backface-visibility: $visibility;
+}
+
 
 

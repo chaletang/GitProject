@@ -1,0 +1,75 @@
+<section class="tasks-container">
+	<div class="dropdown task-add pull-right">		
+		<a href="javscript:;" class="dropdown-toggle" data-toggle="dropdown">  
+			<i class="fa fa-plus"></i>
+		</a>
+		<div class="dropdown-menu">
+		  	<form id="todo-form" ng-submit="">
+				<textarea id="new-todo" placeholder="What needs to be done?" ng-model="newTodo" autofocus></textarea>
+				<div class="task-actions">
+					<a ng-click="addTodo()" href="javscript:;"><i class="fa fa-check"></i></a>
+					<a href="javscript:;"><i class="fa fa-close"></i></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<header id="header">
+		<ul class="filters">
+			<li>
+				<a ng-class="{selected: location.path() == '/'} " href="#/">All</a>
+			</li>
+			<li>
+				<a ng-class="{selected: location.path() == '/active'}" href="#/active">Undo</a>
+			</li>
+			<li>
+				<a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Doing</a>
+			</li>
+			<li>
+				<a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Done</a>
+			</li>
+		</ul>
+	</header>
+	<section id="main" ng-show="todos.length" ng-cloak>  
+		<div class="checkbox">
+	  		<label>
+		    	<input class="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
+		    	Mark all as complete
+		  	</label>
+		</div>
+		<ul class="todo-list">
+			<li ng-repeat="todo in todos | filter:statusFilter track by $index" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+				<div class="view">
+					<div class="dropdown pull-right">		
+						<a href="javscript:;" class="dropdown-toggle" data-toggle="dropdown"> 
+							<i class="fa fa-ellipsis-v"></i>
+						</a>
+						<div class="dropdown-menu">
+							  <div class="todo-options">
+							    <ul>
+							    	<li class="option-edit"><a href="javscript:;" ng-click="editTodo(todo)">Edit</a></li>
+							    	<li><a class="option-delete" href="javscript:;" ng-click="removeTodo(todo)">Delete</a></li>
+							    </ul>
+							</div>
+						</div>
+					</div>
+					<div class="checkbox">
+				  		<label>
+					    	<input class="toggle" type="checkbox" value="" ng-model="todo.completed">
+					    	{{todo.title}}
+					  	</label>
+					</div>
+				</div>
+				<form ng-submit="doneEditing(todo)" ng-show="{{editing}}">
+					<input class="edit" ng-trim="false" ng-model="todo.title" ng-blur="doneEditing(todo)" todo-escape="revertEditing(todo)" todo-focus="todo == editedTodo">
+				</form>
+			</li>
+		</ul>
+	</section>
+	<footer id="footer" ng-show="todos.length" ng-cloak>
+		<span id="todo-count"><strong>{{remainingCount}}</strong>
+			<ng-pluralize count="remainingCount" when="{ one: 'item undo', other: 'items undo' }"></ng-pluralize>
+		</span>
+		
+		<a id="clear-completed" ng-click="clearDoneTodos()" ng-show="remainingCount < todos.length">Clear completed</a>
+	</footer>
+</section>

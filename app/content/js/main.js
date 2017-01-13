@@ -25,9 +25,15 @@ require.config({
 		'FlashService': '../../services/FlashService',
 		'UserService': '../../services/UserService',
 		'AppService': '../../services/AppService',
+		'TaskStorage':'../../services/TaskStorage',
 		
 		'topNav': '../../directives/topNav',
 		'sideBar': '../../directives/sideBar',
+		'notify': '../../directives/notify',
+		'myBox': '../../directives/myBox',
+		'myTabs': '../../directives/myTabs',
+		'myPane': '../../directives/myPane',
+		'tasks': '../../directives/tasks',
 		
 		'appController':'../../controllers/appController'
 		

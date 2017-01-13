@@ -14,9 +14,16 @@
   	
 	<script type="text/javascript" src="content/js/libs/requirejs/require.js" data-main="content/js/main.js"></script>
 	
-	<div ng-if="app.isAuthenticated()" ng-include="'includes/topNav.html'"></div>
-		
-	<div ng-view></div> 
+	
+	<div ng-if="app.isAuthenticated()" top-nav></div>
+	
+	<div ng-if="app.isAuthenticated()" side-bar></div> 
+
+	<div class="main-wrapper">	 
+		<div ng-view></div> 
+	</div>
+	
+	<div ng-if="app.isAuthenticated()" ng-include="'includes/footer.html'"></div>
 	
   </body>
 </html>

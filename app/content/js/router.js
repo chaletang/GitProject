@@ -1,5 +1,6 @@
-define(['jquery','app'], function ($,app) { 
+define(['jquery','app','directives'], function ($,app,appDirectives) { 
 
+	//angular.module('routeResolverModule').setupRegister(appDirectives); 
 	angular.module('routeResolverModule').setupRegister(app); 
 			
    	app.config(['$routeProvider', 'routeResolverProvider', 'USER_ROLES',
@@ -24,23 +25,23 @@ define(['jquery','app'], function ($,app) {
             // redirect to login page if not logged in and trying to access a restricted page
             var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
-            /*if (restrictedPage && !loggedIn) { 
-                $location.path('/login');
-            }*/
+
            	//var currentPath = current.$$route.originalPath;
             var authorizedRoles = next.data.authorizedRoles;
-		    if (!AuthService.isAuthorized(authorizedRoles)) {
+            if(restrictedPage){
+            	if (!AuthService.isAuthorized(authorizedRoles)) {
       			//event.preventDefault();
-		      	if (AuthService.isAuthenticated()) {
-		        // user is not allowed
-		        	$rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
-		      	} else {
-		        // user is not logged in
-		        	$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-		        	$location.path('/login');
-		        	
-		      	}
-		    }
+			      	if (AuthService.isAuthenticated()) {
+			        // user is not allowed
+			        	$rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
+			      	} else {
+			        // user is not logged in
+			        	$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+			        	$location.path('/login');	
+			      	}
+		    	}
+            }
+		    
         });
 	}]);
 	return app;

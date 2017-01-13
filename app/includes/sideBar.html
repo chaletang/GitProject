@@ -1,14 +1,14 @@
-<div class="sideBar">
+<div class="side-bar-container">
 	<div class="profile-menu">
 		<div class="profile-pic">
 			<img src="../../content/images/profile-img.jpg" alt="" class="mCS_img_loaded">
 		</div>
 		<div class="profile-info">
-			Hi,{{app.currentUser.username}}
-				<span ng-switch on="app.currentUser.role">
+			Hi,{{app.currentUser.username}}({{app.currentUser.role}})
+				<!--<span ng-switch on="app.currentUser.role">
 				  <span ng-switch-when="app.userRoles.admin">({{app.userRoles.admin}})</span>
 				  <span ng-switch-when="app.userRoles.editor">({{app.userRoles.editor}})</span>
-				  <span ng-switch-default>({{app.userRoles.guest}})</span>
+				  <span ng-switch-default>({{app.userRoles.guest}})</span>-->
 				</span>
 			<ul class="info-menu">
 				<li><a data-ui-sref="pages.profile.profile-about" data-ng-click="mactrl.sidebarStat($event)" href="#/pages/profile/profile-about"><i class="zmdi zmdi-account"></i> View Profile</a></li>

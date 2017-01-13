@@ -13,3 +13,31 @@
 .pull-right {
 	float: right;
 }
+
+.badge {
+	  @include border-radius(3px);
+    font-size: 10px;
+    padding: 2px 4px;
+    background: red;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+}
+.strike {
+	text-decoration: line-through;
+}
+
+.dropdown-menu {
+	@include transform(scale(0));
+	@include opacity(0);
+	@include transition(all .3s);
+	@include transform-origin(top right);
+	display: block;
+}
+
+.open {
+	> .dropdown-menu {
+		@include transform(scale(1));
+    @include opacity(1);
+	}
+}
