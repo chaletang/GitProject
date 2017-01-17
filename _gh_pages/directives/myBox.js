@@ -4,14 +4,11 @@ define(['directives'],function(appDirectives){
  		return {
 	      restrict: 'E',
 	      transclude: true,
-	      scope: {title: '@', bgcolor:'@'},
-	      controller: ['$scope', function MyBoxController($scope) {
-	      		$scope.boxType = '';
-				$scope.zoomIn = function(){
-					$scope.boxType = 'large';
-				}
-				$scope.zoomOut = function(){
-					$scope.boxType = '';
+	      scope: {title: '@', boxstyle:'@'},
+	      controller: ['$scope', function MyBoxController($scope) { 
+	      		$scope.boxType = 'large';
+				$scope.zoom = function(){
+					$scope.boxType == 'large'?$scope.boxType:'';
 				}
 	      }],
 	      link: function(scope, element, attrs){

@@ -26,6 +26,23 @@
 .strike {
 	text-decoration: line-through;
 }
+.bold {
+	font-weight: bold;
+}
+
+.bg-blue {
+	background: $blue;
+}
+.bg-green {
+	background: $green;
+}
+.bg-orange {
+	background: $orange;
+}
+.bg-red {
+	background: $red;
+}
+
 
 .dropdown-menu {
 	@include transform(scale(0));

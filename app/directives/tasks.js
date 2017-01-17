@@ -8,100 +8,120 @@ define(['directives'],function(appDirectives){
 	      controller: ['$rootScope', '$scope', '$location', 'TaskStorage', 'filterFilter','$http', function TasksController($rootScope,$scope, $location, TaskStorage, filterFilter, $http) {	      		
 	      		var dataUrl = "../../content/js/data/";	
 	      					    
-	      		var todos = $scope.todos;
-	      		$scope.newTodo = '';
-				$scope.editedTodo = null;
+	      		var tasks = $scope.tasks;
+	      		$scope.newTask = '';
+				$scope.editedTask = null;
 				$scope.currentUser = $rootScope.globals.currentUser.username;
-				$scope.statusFilter ={ user: $scope.currentUser, status: 'undo' };
-				//$scope.todos = TaskStorage.get();
+				$scope.statusFilter ={ user: $scope.currentUser};
+				$scope.status ='all';
 				
-	      		$http.get(dataUrl + "tasks.json").success(
+				if(TaskStorage.get().length == 0) {
+					$http.get(dataUrl + "tasks.json").success(
 	      			function(response) {
-	      				todos =$scope.todos = response.tasks;
-	      				$scope.watchTodo();
-  				});
+	      				tasks =$scope.tasks = response.tasks;
+					});
+				}
+				else {
+					tasks = $scope.tasks = TaskStorage.get();
+				}
+				
 
-				$scope.watchTodo = function(){
-					$scope.$watch('todos', function () {
-						if(todos){
-							$scope.remainingCount = filterFilter(todos, { status: 'Undo' }).length;
-							$scope.doingCount = filterFilter(todos, { status: 'Doing' }).length;
-							$scope.doneCount = todos.length - $scope.remainingCount - $scope.doingCount;
+  				$scope.switchTask = function(status){
+  					$scope.status = status;
+  					if(status == "undo") {
+  						$scope.statusFilter ={ user: $scope.currentUser, completed: false };
+  					}else if (status == "done")	{
+  						$scope.statusFilter ={ user: $scope.currentUser, completed: true };
+  					}else {
+  						$scope.statusFilter ={ user: $scope.currentUser};
+  					}
+  				}
+
+				//$scope.watchTodo = function(){
+					$scope.$watch('tasks', function () {
+						if(!!tasks){
+							$scope.allCount = filterFilter(tasks, {user: $scope.currentUser}).length;
+							$scope.remainingCount = filterFilter(tasks, {user: $scope.currentUser,completed: false }).length;
+							$scope.doneCount = $scope.allCount - $scope.remainingCount;
 							$scope.allChecked = !$scope.remainingCount;
-							//TaskStorage.put(todos);
 						}
 					}, true);
-				};
+				//};
 				
-				$scope.saveTodo = function () {
-					$http.post('http://localhost:9001/content/js/data/tasks.json', todos).success(function(){
+				$scope.saveTask = function () {
+					/*$http.post('http://localhost:9001/content/js/data/tasks.json', todos).success(function(){
 			            $scope.msg = 'Data saved';
 			        }).error(function(data) {
 			            alert("failure message:" + JSON.stringify({data:data}));
-			        });
+			        });*/
+			       TaskStorage.put(tasks);
+			       alert("Data saved to localstorage!");
 				};
 				
-				$scope.addTodo = function () {
-					var newTodo = $scope.newTodo.trim();
+				$scope.addTask = function () {
+					var newTask = $scope.newTask.trim();
 
-					if (!newTodo.length) {
+					if (!newTask.length) {
 						return;
 					}
 	
-					todos.push({
-						title: newTodo,
-						status: 'undo',
+					tasks.push({
+						title: newTask,
+						completed: false,
 						user: $scope.currentUser
 						
 					});
+					$scope.needSave = true;
 	
 					$scope.newTodo = '';
 				};
 	
 	
-				$scope.editTodo = function (todo) {
-					$scope.editedTodo = todo;
-					// Clone the original todo to restore it on demand.
-					$scope.originalTodo = angular.copy(todo);
+				$scope.editTask = function (task) {
+					$scope.editedTask = task;
+					// Clone the original task to restore it on demand.
+					$scope.originalTask = angular.copy(task);
 					$scope.editing = true;;
 				};
 	
 	
-				$scope.doneEditing = function (todo) {
-					$scope.editedTodo = null;
-					todo.title = todo.title.trim();
+				$scope.doneEditing = function (task) {
+					$scope.editedTask = null;
+					task.title = task.title.trim();
 	
-					if (!todo.title) {
-						$scope.removeTodo(todo);
+					if (!task.title) {
+						$scope.removeTask(task);
 					}
+					$scope.needSave = true;
 					$scope.editing = false;
 				};
 	
-				$scope.revertEditing = function (todo) {
-					todos[todos.indexOf(todo)] = $scope.originalTodo;
-					$scope.doneEditing($scope.originalTodo);
+				$scope.revertEditing = function (task) {
+					tasks[tasks.indexOf(task)] = $scope.originalTask;
+					$scope.doneEditing($scope.originalTask);
 				};
 	
-				$scope.removeTodo = function (todo) {
-					todos.splice(todos.indexOf(todo), 1);
+				$scope.removeTask = function (task) {
+					tasks.splice(tasks.indexOf(task), 1);
 				};
 	
 	
-				$scope.clearDoneTodos = function () {
-					$scope.todos = todos = todos.filter(function (val) {
+				$scope.clearDoneTasks = function () {
+					$scope.tasks = tasks = tasks.filter(function (val) {
 						return !val.completed;
 					});
 				};
 	
 	
 				$scope.markAll = function (done) {
-					todos.forEach(function (todo) {
-						todo.completed = done;
+					tasks.forEach(function (task) {
+						task.completed = done;
+						
 					});
 				};
 	      }],
 	      link: function(scope, element, attrs){
-				scope.$watch(attrs.todoFocus, function (newval) {
+				scope.$watch(attrs.taskFocus, function (newval) {
 					if (newval) {
 						$timeout(function () {
 							element[0].focus();

@@ -12,7 +12,10 @@ require.config({
 		'angular': '../../bower_components/angular/angular',
 		'angularMocks': '../../bower_components/angular-mocks/angular-mocks',
 		'angularRoute': '../../bower_components/angular-route/angular-route',
+		'angularAnimate': '../../bower_components/angular-animate/angular-animate',
 		'angularCookies': '../../bower_components/angular-cookies/angular-cookies',
+		'angularChat': '../../bower_components/angular-chat/angular-chat',
+		'rltm': '../../bower_components/rltm/web/rltm',
 		
 		'jquery': 'libs/jquery/jquery',
 		'underscore': 'libs/underscore/underscore',
@@ -54,7 +57,13 @@ require.config({
 		angularMocks :{
 			deps: ['angular']
 		},
+		angularAnimate :{
+			deps: ['angular']
+		},
 		angularCookies :{
+			deps: ['angular']
+		},
+		angularChat :{
 			deps: ['angular']
 		}
 	},

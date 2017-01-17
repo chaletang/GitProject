@@ -1,27 +1,27 @@
 {
     "tasks": [{
     	"title": "Task1",
-        "status": "Undo",
+        "completed": false,
         "user": "Lily"
     }, {
         "title": "Task2",
-        "status": "Doing",
+        "completed": false,
         "user": "Lily"
     }, {
         "title": "Task3",
-        "status": "Done",
+        "completed": true,
         "user": "Lily"
     }, {
         "title": "Task4",
-        "status": "Undo",
+        "completed": false,
         "user": "Kevin"
     }, {
         "title": "Task5",
-        "status": "Undo",
+        "completed": false,
         "user": "Lily"
     }, {
         "title": "Task6",
-        "status": "Undo", 
+        "completed": true,
         "user": "Lily"
     }]
 }

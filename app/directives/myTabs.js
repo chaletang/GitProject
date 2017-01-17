@@ -4,7 +4,7 @@ define(['directives'],function(appDirectives){
  		return {
 	      restrict: 'E',
 	      transclude: true,
-	      scope: {},
+	      scope: {tabstyle:'@'},
 	      controller: ['$scope', function MyTabsController($scope) {
 	        var panes = $scope.panes = [];
 	
