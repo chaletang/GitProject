@@ -1,6 +1,5 @@
-define(['jquery','app','directives'], function ($,app,appDirectives) { 
-
-	//angular.module('routeResolverModule').setupRegister(appDirectives); 
+define(['jquery','app','directives','photo'], function ($,app,appDirectives,photo) { 
+	 
 	angular.module('routeResolverModule').setupRegister(app); 
 			
    	app.config(['$routeProvider', 'routeResolverProvider', 'USER_ROLES',
@@ -44,5 +43,21 @@ define(['jquery','app','directives'], function ($,app,appDirectives) {
 		    
         });
 	}]);
+    app.run(['Pubnub','currentUser', function(Pubnub, currentUser) {
+    Pubnub.init({
+          publish_key: 'pub-c-56597f6c-0ebd-4553-9984-88d2e02fa2aa',
+          subscribe_key: 'sub-c-6accac3a-dc77-11e6-9211-02ee2ddab7fe',
+          uuid: currentUser,
+          origin: 'pubsub.pubnub.com',
+          ssl: true
+      });
+  	}]);
+  	app.run(['ngNotify', function(ngNotify) {
+      ngNotify.config({
+          theme: 'paster',
+          position: 'top', 
+          duration: 250
+      });
+  	}]);
 	return app;
 });

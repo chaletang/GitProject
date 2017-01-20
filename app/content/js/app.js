@@ -1,7 +1,6 @@
-define(['angularRoute','angularCookies','angularAnimate','RouteResolver','directives','constants'],function(){
+define(['angularRoute','pubnubAngular','ngNotify','angularCookies','angularAnimate','RouteResolver','directives','constants','core'],function(){
 	var app = angular.module('webapp', [
-        'ngRoute','ngCookies','ngAnimate','routeResolverModule','app.directives','app.constants'
+        'ngRoute','pubnub.angular.service', 'ngNotify','ngCookies','ngAnimate','routeResolverModule','app.directives','app.constants','app.core'
     ]);
-    
-	return app;   
+	return app; 
 });

@@ -44,6 +44,9 @@
 .bg-red {
   background: #e91e63; }
 
+.bg-pink {
+  background: #E91ECF; }
+
 .dropdown-menu {
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
@@ -792,6 +795,8 @@ body {
     position: absolute;
     left: 0;
     bottom: 0; }
+  .box form, .box input, .box textarea, .box select {
+    color: #333; }
   .box .box-caption {
     padding: 2px 10px;
     cursor: pointer;
@@ -992,5 +997,15 @@ body {
     float: right;
     color: #ffffff;
     margin-left: 10px; }
+
+.photo-list {
+  padding: 0;
+  margin: 0;
+  overflow: hidden; }
+  .photo-list > li {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    float: left; }
 
 /*# sourceMappingURL=app.css.map */

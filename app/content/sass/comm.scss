@@ -42,7 +42,9 @@
 .bg-red {
 	background: $red;
 }
-
+.bg-pink {
+	background: $pink;
+}
 
 .dropdown-menu {
 	@include transform(scale(0));
