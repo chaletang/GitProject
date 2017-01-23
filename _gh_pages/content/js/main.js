@@ -41,10 +41,12 @@ require.config({
 		
 		'topNav': '../../directives/topNav',
 		'sideBar': '../../directives/sideBar',
-		'notify': '../../directives/notify',
+		
 		'myBox': '../../directives/myBox',
 		'myTabs': '../../directives/myTabs',
 		'myPane': '../../directives/myPane',
+		
+		'notify': '../../directives/notify',
 		'tasks': '../../directives/tasks',
 		'photoList': '../../directives/photoList',
 		
@@ -53,12 +55,18 @@ require.config({
 		'messageList': '../../directives/messageList',
 		'userAvatar':'../../directives/userAvatar',
 		
-		'appController':'../../controllers/appController' 
+		'appController':'../../controllers/appController' ,
+		
+		'bookBlock':'../../content/js/libs/jquery.bookblock',
+		'modernizr':'../../content/js/libs/modernizr.custom'
 		
 	},
 	shim: {
 		stxPL:{
 			deps: ['jquery']
+		},
+		bookBlock:{
+			deps: ['jquery','modernizr']
 		},
 		lodash: {
 			exports: '_'
@@ -67,7 +75,7 @@ require.config({
 			exports: 'angular'
 		},
 		angularRoute :{
-			deps: ['angular']
+			deps: ['angular'] 
 		},
 		angularMocks :{
 			deps: ['angular']

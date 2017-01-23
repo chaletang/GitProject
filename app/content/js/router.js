@@ -4,13 +4,14 @@ define(['jquery','app','directives','photo'], function ($,app,appDirectives,phot
 			
    	app.config(['$routeProvider', 'routeResolverProvider', 'USER_ROLES',
    	function($routeProvider, routeResolverProvider, USER_ROLES){
-   		routeResolverProvider.routeConfig.setBaseDirectories('./views/', './controllers/','./components/');
+   		routeResolverProvider.routeConfig.setBaseDirectories('./views/', './controllers/','./directives/');
 		var route = routeResolverProvider.route;
 		$routeProvider
 			.when('/register', route.resolve('register')) 
 			.when('/login', route.resolve('login'))
 			.when('/home', route.resolve('home'))
-			.when('/dashboard', route.resolve('dashboard','',[USER_ROLES.admin,USER_ROLES.editor]))
+			.when('/dashboard', route.resolve('dashboard','',true,[USER_ROLES.admin,USER_ROLES.editor]))
+			.when('/photoList', route.resolve('photoList','',false))
 			.otherwise({redirectTo: '/login'});
 	}]);
 	app.run(['$rootScope', '$location', '$cookies', '$http', 'AUTH_EVENTS', 'AuthService',function($rootScope, $location, $cookies, $http, AUTH_EVENTS, AuthService){

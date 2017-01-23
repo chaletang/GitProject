@@ -1,39 +1,66 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12">
-      <!--Sidebar content-->
-
-      <p>
-        Search:
-        <input ng-model="query" />
-      </p>
-
-      <p>
-        Sort by:
-        <select ng-model="orderProp">
-          <option value="id">Default</option>
-          <option value="flag">Flag</option>
-          <option value="year">Newest</option>
-        </select>
-      </p>
-
-    </div>
-   </div>
-   <div class="row">
-    <div class="col-xs-12">
-      <!--Body content-->
-
-      <ul class="photo-list">
-        <li ng-repeat="photo in photos | filter:query | orderBy:orderProp"
-            class="thumbnail photo-list-item">
-          <a href="#!/photos/{{photo.id}}" class="thumb">
-            <img ng-src="{{photo.imageUrl}}" alt="{{photo.name}}" />
-          </a>
-          <a href="#!/photos/{{photo.id}}">{{photo.name}}</a>
-          <p>{{photo.snippet}}</p>
-        </li>
-      </ul>
-
-    </div>
-  </div>
+<div class="photo-container" ng-class="{isPage:isPage}">
+	<div class="container-fluid">
+  		<div class="row" ng-if="isPage">
+	    	<div class="col-xs-12">
+	      		<p>
+	        		Search:
+		        	<input ng-model="query" />
+		      	</p>
+	      		<p>
+	        		Sort by:
+	        		<select ng-model="orderProp">
+		          		<option value="id">Default</option>
+		          		<option value="flag">Flag</option>
+		          		<option value="year">Newest</option>
+	        		</select>
+	      		</p>
+	    	</div>
+   		</div>
+   		<div class="row" ng-if="isPage">
+			<div class="col-xs-12">
+	      		<ul class="photo-list">
+	        		<li ng-repeat="photo in photos | filter:query | orderBy:orderProp | limitTo:limitNum" class="thumbnail photo-list-item">
+	          			<a href="#!/photos/{{photo.id}}" class="thumb">
+	            			<img ng-src="{{photo.imageUrl}}" alt="{{photo.name}}" />
+	          			</a>
+	          			<a href="#!/photos/{{photo.id}}">{{photo.name}}</a>
+	          			<p>{{photo.snippet}}</p>
+	        		</li>
+	      		</ul>
+	    	</div>
+	  	</div>
+	  	<div class="row" ng-if="!isPage">
+	  		<div class="col-xs-12">
+	  			<div class="obsessive_creative_slider_content">
+					<div id="bb-bookblock-vertical" class="bb-bookblock bb-vertical" data-orientation="vertical">
+						<div class="bb-item" ng-repeat="photo in photos | filter:query | orderBy:orderProp | limitTo:limitNum">
+							<div class="obsessive_creative_slider_img" >
+								<div class="obsessive_creative_slider_img_caption">{{photo.name}}</div>
+								<img ng-src="{{photo.imageUrl}}" alt="{{photo.name}}">
+							</div>
+							<div class="obsessive_creative_slider_text">
+								<div class="obsessive_creative_slider_text_page">
+									<strong>Image</strong><span>{{photo.id}}</span><strong>of</strong>
+								</div>
+								<div class="obsessive_creative_slider_text_inner">
+									Page {{photo.id}}
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					<div class="obsessive_creative_slider_nav">
+						<p><a href="#/photoList">View All Photos</a></p>
+						<div class="obsessive_creative_slider_nav_inner" >
+							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-first bb-custom-icon bb-custom-icon-first">First page</a>
+							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-prev bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
+							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-next bb-custom-icon bb-custom-icon-arrow-right">Next</a>
+							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-last bb-custom-icon bb-custom-icon-last">Last page</a>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+	  		</div>
+	  	</div>
+	</div>
 </div>

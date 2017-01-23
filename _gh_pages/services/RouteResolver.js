@@ -45,11 +45,11 @@ define(['angular'],function(angular) {
 		this.routeConfig = function() {
 			var viewsDirectory = '/views/',
 			controllersDirectory = '/controllers/',
-			componentsDirectory = '/components/', 
-			setBaseDirectories = function(viewsDir, controllersDir,componentsDir){
+			directivesDirectory = '/directives/', 
+			setBaseDirectories = function(viewsDir, controllersDir,directivesDir){
 				viewsDirectory = viewsDir;
 				controllersDirectory = controllersDir;
-				componentsDirectory = componentsDir;
+				directivesDirectory = directivesDir;
 			},
 			getViewsDirectory = function(){
 				return viewsDirectory;
@@ -57,18 +57,18 @@ define(['angular'],function(angular) {
 			getControllersDirectory = function() {
 				return controllersDirectory;
 			};
-			getComponentsDirectory = function() {
-				return componentsDirectory;
+			getDirectivesDirectory = function() {
+				return directivesDirectory;
 			};
 			return {
 				setBaseDirectories: setBaseDirectories,
 				getControllersDirectory: getControllersDirectory,
 				getViewsDirectory: getViewsDirectory,
-				getComponentsDirectory: getComponentsDirectory
+				getDirectivesDirectory: getDirectivesDirectory
 			};
 		}();
 		this.route = function(routeConfig){
-			var resolve = function(baseName, path,  role, controllerAs, secure){
+			var resolve = function(baseName, path, page, role, controllerAs, secure){
 				if(!path) {
 					path = '';
 				}
@@ -78,16 +78,28 @@ define(['angular'],function(angular) {
 				if(!role){
 					role = ['admin','editor','guest'];
 				}
+				if(angular.isUndefined(page)){
+					page = !page;
+				}
+				
 				var routeDef = {};
-				routeDef.data = {authorizedRoles: role};
+				routeDef.data = {authorizedRoles: role, pageType: page};
 				routeDef.templateUrl = routeConfig.getViewsDirectory() + path + baseName + 'View.html';
 				routeDef.controller = baseName + 'Controller';
 				if (controllerAs) routeDef.controllerAs = controllerAs;
 				routeDef.secure = (secure)? secure : false;
 				routeDef.resolve = {
-					load: ['$q', '$rootScope',function($q,$rootScope) {
-							var dependencies = [routeConfig.getControllersDirectory() + path + baseName + 'Controller.js'];
-							return resolveDependencies($q, $rootScope, dependencies);
+					load: ['$http', '$q', '$rootScope',function($http,$q,$rootScope) {
+						var controller = routeConfig.getControllersDirectory() + path + baseName + 'Controller.js';
+						var directive = routeConfig.getDirectivesDirectory() + path + baseName + '.js';
+						var dependencies;
+						if(page){
+							dependencies = [controller];
+						}
+						else {
+							dependencies = [directive];
+						}
+						return resolveDependencies($q, $rootScope, dependencies);
 						
 					}]
 				};

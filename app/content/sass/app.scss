@@ -593,14 +593,18 @@ body {
 		}
 	}
 }
-.photo-list {
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-	> li {
-		width: 50%;
-		padding: 10px;
-		margin-bottom: 10px;
-		float: left;
+.photo-container {
+	padding: 10px 0;
+	.photo-list {
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+		> li {
+			width: 25%;
+			padding: 10px;
+			margin-bottom: 10px;
+			float: left;
+		}
 	}
 }
+
