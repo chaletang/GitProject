@@ -1,11 +1,17 @@
 define(['photo'],function(photo){
+
 	var photoListController = function($scope,$location,PhotoService){
 		$scope.photos = PhotoService.query();
-        $scope.orderProp = 'id';
+        $scope.orderProp = 'year';
         $scope.location = $location;
+        
+	    $scope.$watch('orderProp', function (group) {
+			$scope.filterGroup = group;
+		});
+	    
 		$scope.$watch('location.path()', function (path) {
 			$scope.isPage = (path === '/photoList') ? true : false;
-			$scope.limitNum = (path != '/photoList') ? 4 : null;
+			$scope.limitNum = (path != '/photoList') ? 8 : null;
 		});
 	}
 	photoListController.$inject = ['$scope','$location','PhotoService'];

@@ -1,91 +1,81 @@
 [
     {
         "id": 1, 
-        "flag": "Wedding",
+        "flag": "wedding",
         "year": "2015",
         "imageUrl": "content/images/wedding/wedding-1.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-1.jpg", 
         "name": "Wedding Photo", 
         "snippet": "This is one wedding photo."
     }, 
     {
         "id": 2, 
-        "flag": "Wedding",
+        "flag": "wedding",
         "year": "2015",
         "imageUrl": "content/images/wedding/wedding-2.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-2.jpg", 
         "name": "Wedding Photo", 
         "snippet": "This is one wedding photo."
     }, 
     {
         "id": 3, 
-        "flag": "Wedding",
+        "flag": "wedding",
         "year": "2015",
         "imageUrl": "content/images/wedding/wedding-3.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-3.jpg", 
         "name": "Wedding Photo", 
         "snippet": "This is one wedding photo."
     }, 
     {
         "id": 4, 
-        "flag": "Wedding",
+        "flag": "wedding",
         "year": "2015",
         "imageUrl": "content/images/wedding/wedding-4.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-4.jpg", 
         "name": "Wedding Photo", 
         "snippet": "This is one wedding photo."
     }, 
     {
         "id": 5, 
-        "flag": "Wedding",
+        "flag": "wedding",
         "year": "2015",
         "imageUrl": "content/images/wedding/wedding-5.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-5.jpg", 
         "name": "Wedding Photo", 
         "snippet": "This is one wedding photo."
     }, 
     {
         "id": 6, 
-        "flag": "Wedding",
+        "flag": "wedding",
         "year": "2015",
         "imageUrl": "content/images/wedding/wedding-6.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-6.jpg", 
         "name": "Wedding Photo", 
         "snippet": "This is one wedding photo."
     }, 
     {
         "id": 7, 
-        "flag": "Daily",
+        "flag": "day",
         "year": "2014",
         "imageUrl": "content/images/day/day-1.png", 
-        "thumbimageUrl": "content/images/day/day-1.png", 
         "name": "Daily Photo", 
         "snippet": "This is one daily photo."
     }, 
     {
         "id": 8, 
-        "flag": "Daily",
+        "flag": "day",
         "year": "2014",
         "imageUrl": "content/images/day/day-2.png", 
-        "thumbimageUrl": "content/images/day/day-2.png", 
         "name": "Daily Photo", 
         "snippet": "This is one daily photo."
     }, 
     {
         "id": 9, 
-        "flag": "Daily",
+        "flag": "day",
         "year": "2016",
         "imageUrl": "content/images/day/day-3.png", 
-        "thumbimageUrl": "content/images/day/day-3.png", 
         "name": "Daily Photo", 
         "snippet": "This is one daily photo."
     }, 
     {
         "id": 10, 
-        "flag": "Daily",
+        "flag": "day",
         "year": "2015",
         "imageUrl": "content/images/day/day-4.png", 
-        "thumbimageUrl": "content/images/day/day-4.png", 
         "name": "Daily Photo", 
         "snippet": "This is one daily photo."
     }

@@ -1,42 +1,53 @@
 <div class="photo-container" ng-class="{isPage:isPage}">
-	<div class="container-fluid">
-  		<div class="row" ng-if="isPage">
+	<div class="container" ng-if="isPage">
+  		<div class="row">
 	    	<div class="col-xs-12">
-	      		<p>
-	        		Search:
-		        	<input ng-model="query" />
-		      	</p>
-	      		<p>
-	        		Sort by:
-	        		<select ng-model="orderProp">
-		          		<option value="id">Default</option>
-		          		<option value="flag">Flag</option>
-		          		<option value="year">Newest</option>
-	        		</select>
-	      		</p>
+	    		<div class="photo-filters">
+		      		<p>
+		        		Search:
+			        	<input ng-model="query" />
+			      	</p>
+		      		<p>
+		        		Sort by:
+		        		<select ng-model="orderProp">
+			          		<option value="">All</option>
+			          		<option value="flag">Flag</option>
+			          		<option value="year">Newest</option>
+		        		</select>
+		      		</p>
+		      	</div>
 	    	</div>
    		</div>
-   		<div class="row" ng-if="isPage">
+	  	<div class="row">
 			<div class="col-xs-12">
-	      		<ul class="photo-list">
-	        		<li ng-repeat="photo in photos | filter:query | orderBy:orderProp | limitTo:limitNum" class="thumbnail photo-list-item">
-	          			<a href="#!/photos/{{photo.id}}" class="thumb">
-	            			<img ng-src="{{photo.imageUrl}}" alt="{{photo.name}}" />
-	          			</a>
-	          			<a href="#!/photos/{{photo.id}}">{{photo.name}}</a>
-	          			<p>{{photo.snippet}}</p>
-	        		</li>
-	      		</ul>
+	      		<div class="photo-list" ng-class="{all:orderProp == ''}">
+	      			<div class="photo-group" ng-repeat="(key,value) in photos | filter:query | groupBy:orderProp | orderBy:orderProp">
+		                <div class="photo-group-flag">
+						  	<span class="d-block">{{value}}</span>
+		                </div>  	
+		                <div class="photo-group-content" >
+		                    <div class="lightbox clearfix">
+		                        <div class="lightbox-item" data-src="{{photo.imageUrl}}" ng-repeat="photo in photos | filter:value">
+		                            <div class="lightbox-image">
+		                                <img src="{{photo.thumbimageUrl}}" alt="">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>       
+		            </div>
+	      		</div>
 	    	</div>
 	  	</div>
-	  	<div class="row" ng-if="!isPage">
+	  </div>
+	  <div class="container-fluid" ng-if="!isPage">
+	  	<div class="row">
 	  		<div class="col-xs-12">
 	  			<div class="obsessive_creative_slider_content">
 					<div id="bb-bookblock-vertical" class="bb-bookblock bb-vertical" data-orientation="vertical">
 						<div class="bb-item" ng-repeat="photo in photos | filter:query | orderBy:orderProp | limitTo:limitNum">
-							<div class="obsessive_creative_slider_img" >
+							<div class="obsessive_creative_slider_img" style="background-image:url({{photo.imageUrl}})">
 								<div class="obsessive_creative_slider_img_caption">{{photo.name}}</div>
-								<img ng-src="{{photo.imageUrl}}" alt="{{photo.name}}">
+								<!--<img ng-src="{{photo.imageUrl}}" alt="{{photo.name}}">-->
 							</div>
 							<div class="obsessive_creative_slider_text">
 								<div class="obsessive_creative_slider_text_page">
@@ -49,15 +60,15 @@
 						</div>
 					</div>
 				
-					<div class="obsessive_creative_slider_nav">
-						<p><a href="#/photoList">View All Photos</a></p>
+					<div class="obsessive_creative_slider_nav">	
 						<div class="obsessive_creative_slider_nav_inner" >
 							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-first bb-custom-icon bb-custom-icon-first">First page</a>
-							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-prev bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
-							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-next bb-custom-icon bb-custom-icon-arrow-right">Next</a>
+							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-prev bb-custom-icon bb-custom-icon-arrow-left"><i class="fa fa-chevron-left"></i></a>
+							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-next bb-custom-icon bb-custom-icon-arrow-right"><i class="fa fa-chevron-right"></i></a>
 							<a data-target="#bb-bookblock-vertical" href="#" class="bb-nav-last bb-custom-icon bb-custom-icon-last">Last page</a>
 							<div class="clear"></div>
 						</div>
+						<div class="obsessive_creative_slider_more"><a href="#/photoList">View All Photos</a></div>
 					</div>
 				</div>
 	  		</div>

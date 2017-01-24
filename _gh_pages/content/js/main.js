@@ -5,6 +5,7 @@ require.config({
 		'router': 'router',
 		'constants': 'constants',
 		'directives': 'directives',
+		'filters': 'filters',
 		'core': 'core',
 		'photo': 'core.photo',
 		
@@ -38,6 +39,8 @@ require.config({
 		'PhotoService':'../../services/PhotoService',
 		'CurrentUser':'../../services/CurrentUser',
 		'MessageService':'../../services/MessageService',
+		
+		'groupByFilter':'../../filters/groupByFilter',
 		
 		'topNav': '../../directives/topNav',
 		'sideBar': '../../directives/sideBar',

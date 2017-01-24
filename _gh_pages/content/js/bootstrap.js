@@ -8,6 +8,8 @@ define(['require',
 
 'appController',
 
+'groupByFilter',
+
 'sideBar',
 'topNav',
 'notify',

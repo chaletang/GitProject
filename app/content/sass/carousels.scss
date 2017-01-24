@@ -22,7 +22,7 @@
 		transform-style: preserve-3d;
 	}
 	img {
-		height: 100%;
+		width: 50%;
 	}
 }
 
@@ -154,6 +154,9 @@
 	display: none;
 }
 .obsessive_creative_slider_img {
+	background-size: cover;
+	background-position: center center;
+	height: 100%;
 	.obsessive_creative_slider_img_caption {
 		position: absolute;
 		right: 0;
@@ -171,7 +174,7 @@
 		}
 	}
 	img {
-		height: 100%;
+		width: 50%;
 	}
 }
 
@@ -206,7 +209,12 @@
 .obsessive_creative_slider_nav {
     width: 100%;
     overflow: hidden;
-    padding-top: 30px;
+    padding-top: 20px;
+    .obsessive_creative_slider_more {
+    	a {
+    		color: $white;
+    	}
+    }
     .obsessive_creative_slider_nav_inner {
 	    @extend .pull-right;
 	    position: relative;
@@ -216,17 +224,22 @@
     		display: none;
 			}
 			.bb-nav-prev {
-			    background: url(../images/sprits.png) -402px -79px no-repeat;
+			    background: #ddd;
 			    display: block;
-			    width: 85px;
-			    height: 60px;
-			    text-indent: -9999em;
+			    width: 30px;
+			    height: 30px;
+			    @extend .align-center;
+			    //text-indent: -9999em;
 			    @extend .pull-left;
+			    [class^="fa fa-"] {
+			    	font-size: 20px;
+			    	color: #fff;
+			    	margin-top: 5px;
+			    }
 			}
 			.bb-nav-next {
 				@extend .bb-nav-prev;
-				background-position: -487px -79px;
-			  width: 82px;
+				border-left: 1px solid #aaa;
 			}
 	}
 }
