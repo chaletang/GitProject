@@ -21,15 +21,15 @@
 	  	<div class="row">
 			<div class="col-xs-12">
 	      		<div class="photo-list" ng-class="{all:orderProp == ''}">
-	      			<div class="photo-group" ng-repeat="(key,value) in photos | filter:query | groupBy:orderProp | orderBy:orderProp">
+	      			<div class="photo-group" ng-repeat="(key,value) in photos | filter:query | orderBy:orderProp | groupBy:orderProp">
 		                <div class="photo-group-flag">
 						  	<span class="d-block">{{value}}</span>
 		                </div>  	
 		                <div class="photo-group-content" >
 		                    <div class="lightbox clearfix">
-		                        <div class="lightbox-item" data-src="{{photo.imageUrl}}" ng-repeat="photo in photos | filter:value">
+		                        <div class="lightbox-item" data-src="{{photo.imageUrl}}" ng-repeat="photo in photos | filter:value | filter:query">
 		                            <div class="lightbox-image">
-		                                <img src="{{photo.thumbimageUrl}}" alt="">
+		                                <img src="{{photo.imageUrl}}" alt="">
 		                            </div>
 		                        </div>
 		                    </div>
@@ -44,17 +44,31 @@
 	  		<div class="col-xs-12">
 	  			<div class="obsessive_creative_slider_content">
 					<div id="bb-bookblock-vertical" class="bb-bookblock bb-vertical" data-orientation="vertical">
-						<div class="bb-item" ng-repeat="photo in photos | filter:query | orderBy:orderProp | limitTo:limitNum">
-							<div class="obsessive_creative_slider_img" style="background-image:url({{photo.imageUrl}})">
-								<div class="obsessive_creative_slider_img_caption">{{photo.name}}</div>
-								<!--<img ng-src="{{photo.imageUrl}}" alt="{{photo.name}}">-->
+						<!-- Use for cover -->
+						<!--<div class="bb-item">
+							<div class="obsessive_creative_slider_img">
+								<div class="obsessive_creative_slider_img_caption">Cover</div>
 							</div>
 							<div class="obsessive_creative_slider_text">
 								<div class="obsessive_creative_slider_text_page">
-									<strong>Image</strong><span>{{photo.id}}</span><strong>of</strong>
+									<strong>Image</strong>
 								</div>
 								<div class="obsessive_creative_slider_text_inner">
-									Page {{photo.id}}
+									Page 
+								</div>
+							</div>
+						</div>-->
+						<div class="bb-item" ng-repeat="(key,photo) in photos | filter:query | orderBy:orderProp:true | limitTo:limitNum">
+							<div class="obsessive_creative_slider_img" style="background-image:url({{photo.imageUrl}})">
+								<div class="obsessive_creative_slider_img_caption">{{photo.name}}</div>
+								<!--<img ng-src="{{photo.imageUrl}}" alt="{{photo.name}}">--> 
+							</div>
+							<div class="obsessive_creative_slider_text">
+								<div class="obsessive_creative_slider_text_page">
+									<strong>Image</strong><span>{{key + 1}}</span><strong>of</strong>
+								</div>
+								<div class="obsessive_creative_slider_text_inner">
+									Page {{key + 1}}
 								</div>
 							</div>
 						</div>

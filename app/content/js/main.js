@@ -8,9 +8,12 @@ require.config({
 		'filters': 'filters',
 		'core': 'core',
 		'photo': 'core.photo',
+		'calendar': 'core.calendar',
+		'chat': 'core.chat',
 		
 		'AUTH_EVENTS': '../../constants/AUTH_EVENTS',
 		'USER_ROLES': '../../constants/USER_ROLES',
+		'CHAT_CONFIG': '../../constants/CHAT_CONFIG',
 		
 		'angular': '../../bower_components/angular/angular',
 		'angularMocks': '../../bower_components/angular-mocks/angular-mocks',
@@ -26,9 +29,13 @@ require.config({
 		'pubnub': '../../bower_components/pubnub/dist/web/pubnub',
 		'pubnubAngular': '../../bower_components/pubnub-angular/dist/pubnub-angular',
 		
+		'fullCalendar':'../../bower_components/fullcalendar/dist/fullcalendar',
+		'moment': '../../bower_components/moment/moment',
+		
 		'jquery': 'libs/jquery/jquery',
 		'domReady': 'libs/requirejs-domReady/domReady',
 		'stxPL': 'libs/stx-pattern-library',
+		
 		
 		'RouteResolver': '../../services/RouteResolver',
 		'AuthService': '../../services/AuthService',
@@ -52,6 +59,9 @@ require.config({
 		'notify': '../../directives/notify',
 		'tasks': '../../directives/tasks',
 		'photoList': '../../directives/photoList',
+		'calendarBox':'../../directives/calendarBox',
+		
+		'chatBox': '../../directives/chatBox',
 		
 		'messageForm': '../../directives/messageForm',
 		'messageItem': '../../directives/messageItem',
@@ -65,8 +75,11 @@ require.config({
 		
 	},
 	shim: {
-		stxPL:{
+		stxPL: {
 			deps: ['jquery']
+		},
+		fullCalendar: {
+			deps: ['jquery','moment']
 		},
 		bookBlock:{
 			deps: ['jquery','modernizr']
@@ -93,7 +106,7 @@ require.config({
 			deps: ['angular']
 		},
 		angularChat :{
-			deps: ['angular']
+			deps: ['angular','rltm'] 
 		},
 		ngNotify :{
 			deps: ['angular']

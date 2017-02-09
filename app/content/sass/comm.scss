@@ -13,6 +13,9 @@
 .pull-right {
 	float: right;
 }
+.hide {
+	display: none; 
+}
 
 .badge {
 	  @include border-radius(3px);
@@ -35,6 +38,9 @@
 }
 .bg-green {
 	background: $green;
+}
+.bg-dark-green {
+	background: $dark-green;
 }
 .bg-orange {
 	background: $orange;

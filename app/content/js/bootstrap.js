@@ -18,6 +18,9 @@ define(['require',
 'myPane',
 'tasks',
 'photoList',
+'calendarBox',
+
+'chatBox',
 
 'messageForm',
 'messageItem',
@@ -35,7 +38,8 @@ define(['require',
 'MessageService',
 
 'AUTH_EVENTS',
-'USER_ROLES'],function(require){
+'USER_ROLES',
+'CHAT_CONFIG'],function(require){
 	'use strict';
 	 require(['domReady!'], function (document) {
   		angular.bootstrap(document, ['webapp']); 

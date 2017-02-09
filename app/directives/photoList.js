@@ -1,4 +1,4 @@
-define(['photo'],function(photo){
+define(['photo'],function(photoModule){
 
 	var photoListController = function($scope,$location,PhotoService){
 		$scope.photos = PhotoService.query();
@@ -6,16 +6,16 @@ define(['photo'],function(photo){
         $scope.location = $location;
         
 	    $scope.$watch('orderProp', function (group) {
-			$scope.filterGroup = group;
+			//$scope.filterGroup = group;
 		});
 	    
 		$scope.$watch('location.path()', function (path) {
 			$scope.isPage = (path === '/photoList') ? true : false;
-			$scope.limitNum = (path != '/photoList') ? 8 : null;
+			$scope.limitNum = (path != '/photoList') ? 4 : null;
 		});
 	}
 	photoListController.$inject = ['$scope','$location','PhotoService'];
-	photo.controller('photoListController',photoListController);
+	photoModule.controller('photoListController',photoListController);
 	
 	var photoList = function(){
  		return {
@@ -105,6 +105,6 @@ define(['photo'],function(photo){
 		    }
 		  };
 	};
-	photo.directive('photoList',photoList); 
+	photoModule.directive('photoList',photoList); 
 	
 });

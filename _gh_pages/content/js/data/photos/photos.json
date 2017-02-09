@@ -1,93 +1,147 @@
 [
     {
         "id": 1, 
-        "flag": "Wedding",
+        "flag": "Food",
         "year": "2015",
-        "imageUrl": "content/images/wedding/wedding-1.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-1.jpg", 
-        "name": "Wedding Photo", 
-        "snippet": "This is one wedding photo."
+        "imageUrl": "content/images/food/food-1.png", 
+        "name": "Food Photo", 
+        "snippet": "This is one food photo."
     }, 
     {
         "id": 2, 
-        "flag": "Wedding",
-        "year": "2015",
-        "imageUrl": "content/images/wedding/wedding-2.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-2.jpg", 
-        "name": "Wedding Photo", 
-        "snippet": "This is one wedding photo."
+        "flag": "Food",
+        "year": "2017",
+        "imageUrl": "content/images/food/food-2.png", 
+        "name": "Food Photo", 
+        "snippet": "This is one food photo."
     }, 
     {
         "id": 3, 
-        "flag": "Wedding",
-        "year": "2015",
-        "imageUrl": "content/images/wedding/wedding-3.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-3.jpg", 
-        "name": "Wedding Photo", 
-        "snippet": "This is one wedding photo."
+        "flag": "Food",
+        "year": "2016",
+        "imageUrl": "content/images/food/food-3.png", 
+        "name": "Food Photo", 
+        "snippet": "This is one food photo."
     }, 
     {
         "id": 4, 
-        "flag": "Wedding",
+        "flag": "Food",
         "year": "2015",
-        "imageUrl": "content/images/wedding/wedding-4.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-4.jpg", 
-        "name": "Wedding Photo", 
-        "snippet": "This is one wedding photo."
+        "imageUrl": "content/images/food/food-4.png", 
+        "name": "Food Photo", 
+        "snippet": "This is one food photo."
     }, 
     {
         "id": 5, 
-        "flag": "Wedding",
-        "year": "2015",
-        "imageUrl": "content/images/wedding/wedding-5.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-5.jpg", 
-        "name": "Wedding Photo", 
-        "snippet": "This is one wedding photo."
+        "flag": "Food",
+        "year": "2014",
+        "imageUrl": "content/images/food/food-5.png", 
+        "name": "Food Photo", 
+        "snippet": "This is one food photo."
     }, 
     {
         "id": 6, 
-        "flag": "Wedding",
+        "flag": "Food",
         "year": "2015",
-        "imageUrl": "content/images/wedding/wedding-6.jpg", 
-        "thumbimageUrl": "content/images/wedding/wedding-6.jpg", 
-        "name": "Wedding Photo", 
-        "snippet": "This is one wedding photo."
+        "imageUrl": "content/images/food/food-6.png", 
+        "name": "Food Photo", 
+        "snippet": "This is one food photo."
     }, 
     {
         "id": 7, 
-        "flag": "Daily",
+        "flag": "Feature",
         "year": "2014",
-        "imageUrl": "content/images/day/day-1.png", 
-        "thumbimageUrl": "content/images/day/day-1.png", 
-        "name": "Daily Photo", 
-        "snippet": "This is one daily photo."
+        "imageUrl": "content/images/bg/live_bg_1.jpg",  
+        "name": "Feature Photo", 
+        "snippet": "This is one feature photo."
     }, 
     {
         "id": 8, 
-        "flag": "Daily",
+        "flag": "Feature",
         "year": "2014",
-        "imageUrl": "content/images/day/day-2.png", 
-        "thumbimageUrl": "content/images/day/day-2.png", 
-        "name": "Daily Photo", 
-        "snippet": "This is one daily photo."
+        "imageUrl": "content/images/bg/live_bg_2.jpg", 
+        "name": "Feature Photo", 
+        "snippet": "This is one feature photo."
     }, 
     {
         "id": 9, 
-        "flag": "Daily",
+        "flag": "Feature",
         "year": "2016",
-        "imageUrl": "content/images/day/day-3.png", 
-        "thumbimageUrl": "content/images/day/day-3.png", 
-        "name": "Daily Photo", 
-        "snippet": "This is one daily photo."
+        "imageUrl": "content/images/bg/live_bg_3.jpg", 
+        "name": "Feature Photo", 
+        "snippet": "This is one feature photo."
     }, 
     {
         "id": 10, 
-        "flag": "Daily",
+        "flag": "Feature",
+        "year": "2017",
+        "imageUrl": "content/images/bg/live_bg_4.jpg", 
+        "name": "Feature Photo", 
+        "snippet": "This is one feature photo."
+    },
+    {
+        "id": 11, 
+        "flag": "Feature",
         "year": "2015",
-        "imageUrl": "content/images/day/day-4.png", 
-        "thumbimageUrl": "content/images/day/day-4.png", 
-        "name": "Daily Photo", 
-        "snippet": "This is one daily photo."
+        "imageUrl": "content/images/bg/live_bg_5.jpg", 
+        "name": "Feature Photo", 
+        "snippet": "This is one feature photo."
+    },
+    {
+        "id": 12, 
+        "flag": "Feature",
+        "year": "2017",
+        "imageUrl": "content/images/bg/live_bg_6.jpg", 
+        "name": "Feature Photo", 
+        "snippet": "This is one feature photo."
+    },
+    {
+        "id": 13, 
+        "flag": "Feature",
+        "year": "2017",
+        "imageUrl": "content/images/bg/live_bg_7.jpg", 
+        "name": "Feature Photo", 
+        "snippet": "This is one feature photo."
+    }, 
+    {
+        "id": 14, 
+        "flag": "Feature",
+        "year": "2017",
+        "imageUrl": "content/images/bg/live_bg_8.jpg", 
+        "name": "Feature Photo", 
+        "snippet": "This is one feature photo."
+    }, 
+    {
+        "id": 15, 
+        "flag": "Symbol",
+        "year": "2016",
+        "imageUrl": "content/images/symbol/symbol-1.png", 
+        "name": "Symbol Photo", 
+        "snippet": "This is one symbol photo."
+    }, 
+    {
+        "id": 16, 
+        "flag": "Symbol",
+        "year": "2015",
+        "imageUrl": "content/images/symbol/symbol-2.png", 
+        "name": "Symbol Photo", 
+        "snippet": "This is one symbol photo."
+    },
+    {
+        "id": 17, 
+        "flag": "Symbol",
+        "year": "2016",
+        "imageUrl": "content/images/symbol/symbol-3.png", 
+        "name": "Symbol Photo", 
+        "snippet": "This is one symbol photo."
+    },
+    {
+        "id": 18, 
+        "flag": "Symbol",
+        "year": "2016",
+        "imageUrl": "content/images/symbol/symbol-4.png", 
+        "name": "Symbol Photo", 
+        "snippet": "This is one symbol photo."
     }
     
 ]

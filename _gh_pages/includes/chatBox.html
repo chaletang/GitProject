@@ -1,0 +1,17 @@
+<!--<div class="message-container">
+  <message-list></message-list>
+  <message-form></message-form>
+</div>-->
+
+<div class="chat-container">
+    <div class="chat-box">
+        <div ng-repeat="message in messages">
+            <strong>{{message.user.name}}:</strong>
+            <span>{{message.data}}</span>
+        </div>
+        <form>
+            <input ng-model="textbox">
+            <button ng-click="send()">Send</button>
+        </form>
+    </div>
+</div>
